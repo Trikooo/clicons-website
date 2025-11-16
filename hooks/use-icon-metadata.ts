@@ -1,6 +1,6 @@
 // hooks/useIconMetadata.ts
 import { useQuery } from "@tanstack/react-query";
-
+import axios, { AxiosError } from "axios";
 interface Icon {
   name: string;
   tags: string[];
@@ -14,11 +14,14 @@ export function useIconMetadata() {
   return useQuery<IconMetadata>({
     queryKey: ["iconMetadata"],
     queryFn: async () => {
-      const response = await fetch("/api/icons/metadata");
-      if (!response.ok) {
-        throw new Error("Failed to fetch metadata");
+      try {
+        const response = await axios.get("/api/icons/metadata");
+        return response.data;
+      } catch (error: unknown) {
+        throw new Error(
+          error instanceof AxiosError ? error.message : "Failed to fetch data"
+        );
       }
-      return response.json();
     },
   });
 }

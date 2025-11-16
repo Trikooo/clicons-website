@@ -22,13 +22,6 @@ export default function DocsPlaceholder() {
             <FaGithub />
             React README
           </Button>
-          <Button
-            variant="outline"
-            href="https://github.com/Trikooo/clicons/tree/main/svelte/README.md"
-          >
-            <FaGithub />
-            Svelte README
-          </Button>
         </div>
 
         <p className="mt-6 text-sm text-muted-foreground">

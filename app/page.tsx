@@ -145,7 +145,7 @@ export default function Page() {
       <div className="sticky top-0 z-10 pt-8 pb-6 px-8 bg-linear-to-b from-background from-85% to-transparent">
         <div className="relative flex-1 w-full">
           {isPending && (
-            <libRaw.Loading3 className="size-4 absolute right-16 top-1/2 -translate-y-1/2 animate-spin" />
+            <libRaw.Loader3 className="size-4 absolute right-16 top-1/2 -translate-y-1/2 animate-spin" />
           )}
           <KbdGroup className="absolute right-3 top-1/2 -translate-y-1/2">
             <Kbd>⌘</Kbd>

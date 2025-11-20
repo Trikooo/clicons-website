@@ -8,7 +8,6 @@ import {
   DrawerContent,
   DrawerTitle,
 } from "@/components/ui/drawer";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "./ui/card";
 import { Button } from "./ui/button";
 import {
@@ -48,15 +47,6 @@ export function IconDrawer({
 export default function Example() {
   return <${name} className="size-6" strokeWidth={1.5}/>;
 }`,
-    },
-    svelte: {
-      language: "svelte",
-      filename: `${name}.svelte`,
-      code: `<script>
-  import { ${name} } from "clicons-svelte";
-</script>
-
-<${name} class="size-6" strokeWidth={1.5} />`,
     },
   };
 
@@ -130,62 +120,29 @@ export default function Example() {
                   </p>
                 </div>
               </div>
-              <Tabs defaultValue="react" className="w-full">
-                <TabsList>
-                  <TabsTrigger value="react">React</TabsTrigger>
-                  <TabsTrigger value="svelte">Svelte</TabsTrigger>
-                </TabsList>
-                <TabsContent value="react" className="mt-4">
-                  <CodeBlock
-                    data={[codeData.react]}
-                    defaultValue={codeData.react.language}
-                  >
-                    <CodeBlockHeader>
-                      <CodeBlockCopyButton />
-                    </CodeBlockHeader>
-                    <CodeBlockBody>
-                      {(item) => (
-                        <CodeBlockItem
-                          key={item.language}
-                          value={item.language}
-                          lineNumbers={false}
-                        >
-                          <CodeBlockContent
-                            language={item.language as BundledLanguage}
-                          >
-                            {item.code}
-                          </CodeBlockContent>
-                        </CodeBlockItem>
-                      )}
-                    </CodeBlockBody>
-                  </CodeBlock>
-                </TabsContent>
-                <TabsContent value="svelte" className="mt-4">
-                  <CodeBlock
-                    data={[codeData.svelte]}
-                    defaultValue={codeData.svelte.language}
-                  >
-                    <CodeBlockHeader>
-                      <CodeBlockCopyButton />
-                    </CodeBlockHeader>
-                    <CodeBlockBody>
-                      {(item) => (
-                        <CodeBlockItem
-                          key={item.language}
-                          value={item.language}
-                          lineNumbers={false}
-                        >
-                          <CodeBlockContent
-                            language={item.language as BundledLanguage}
-                          >
-                            {item.code}
-                          </CodeBlockContent>
-                        </CodeBlockItem>
-                      )}
-                    </CodeBlockBody>
-                  </CodeBlock>
-                </TabsContent>
-              </Tabs>
+              <CodeBlock
+                data={[codeData.react]}
+                defaultValue={codeData.react.language}
+              >
+                <CodeBlockHeader>
+                  <CodeBlockCopyButton />
+                </CodeBlockHeader>
+                <CodeBlockBody>
+                  {(item) => (
+                    <CodeBlockItem
+                      key={item.language}
+                      value={item.language}
+                      lineNumbers={false}
+                    >
+                      <CodeBlockContent
+                        language={item.language as BundledLanguage}
+                      >
+                        {item.code}
+                      </CodeBlockContent>
+                    </CodeBlockItem>
+                  )}
+                </CodeBlockBody>
+              </CodeBlock>
             </div>
           </div>
         </DrawerContent>
